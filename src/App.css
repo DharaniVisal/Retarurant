@@ -1,0 +1,844 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f1e8;
+  color: #29251f;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+
+header {
+  width: 100%;
+  height: 72px;
+
+  background: #25221e;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #d99b35;
+}
+
+
+
+.hero {
+  width: 100%;
+  min-height: 390px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 70px 20px;
+
+  background:
+    linear-gradient(
+      rgba(37, 34, 30, 0.78),
+      rgba(37, 34, 30, 0.78)
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-small,
+.small-title {
+  color: #c88825;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.hero h1 {
+  margin: 10px 0;
+
+  color: white;
+
+  font-size: 48px;
+}
+
+.hero p:not(.hero-small) {
+  color: #eeeeee;
+  font-size: 17px;
+}
+
+
+.search-bar {
+  width: min(650px, 90%);
+  margin-top: 25px;
+}
+
+.search-bar input,
+input[placeholder*="Search"] {
+  width: 100%;
+
+  padding: 17px 22px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: white;
+  color: #29251f;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+.search-bar input:focus,
+input[placeholder*="Search"]:focus {
+  box-shadow:
+    0 0 0 3px rgba(200, 136, 37, 0.35);
+}
+
+
+.restaurant-section {
+  width: 90%;
+  max-width: 1450px;
+
+  margin: 0 auto;
+
+  padding: 60px 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  margin: 5px 0 0;
+
+  font-size: 32px;
+}
+
+
+.filter-panel {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-panel select,
+.section-heading select {
+  min-width: 150px;
+
+  padding: 12px 15px;
+
+  border: 1px solid #d8d1c5;
+  border-radius: 8px;
+
+  background: white;
+  color: #29251f;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+
+.restaurant-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+}
+
+
+.restaurant-card {
+  background: white;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.13);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 270px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.restaurant-card h2,
+.restaurant-card h3 {
+  margin: 18px 20px 8px;
+
+  color: #29251f;
+}
+
+.restaurant-card p {
+  margin: 7px 20px;
+
+  color: #6f6a62;
+}
+
+.restaurant-card button {
+  width: calc(100% - 40px);
+
+  margin: 18px 20px 20px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #29251f;
+  color: white;
+
+  font-weight: 700;
+}
+
+.restaurant-card button:hover {
+  background: #c88825;
+}
+
+
+.no-results {
+  padding: 50px 20px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 12px;
+
+  color: #777;
+
+  font-size: 18px;
+}
+
+
+.reservation-page {
+  width: 92%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 35px 0 70px;
+}
+
+.back-top {
+  border: none;
+
+  background: transparent;
+  color: #29251f;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  margin-bottom: 25px;
+}
+
+.back-top:hover {
+  color: #c88825;
+}
+
+.reservation-title {
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+.reservation-title h1 {
+  margin: 5px 0;
+
+  font-size: 38px;
+
+  color: #29251f;
+}
+
+
+.restaurant-detail {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1fr;
+
+  width: 100%;
+
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  margin-bottom: 35px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.detail-image {
+  width: 100%;
+
+  height: 320px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.restaurant-detail > div {
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+.restaurant-detail h2 {
+  margin: 15px 0 8px;
+
+  font-size: 32px;
+
+  color: #29251f;
+}
+
+.restaurant-detail p {
+  font-size: 17px;
+
+  color: #29251f;
+}
+
+
+.booking-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  margin-bottom: 35px;
+}
+
+.input-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #29251f;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  border: 1px solid #d8d1c5;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: #29251f;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: #c88825;
+
+  box-shadow:
+    0 0 0 2px rgba(200, 136, 37, 0.15);
+}
+
+.input-group textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+.table-selection {
+  margin-bottom: 35px;
+}
+
+.table-selection h2 {
+  margin-bottom: 20px;
+
+  color: #29251f;
+
+  text-align: center;
+
+  font-size: 28px;
+}
+
+.table-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.table-card {
+  min-height: 110px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 2px solid #ddd5c9;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #29251f;
+
+  transition: 0.2s ease;
+}
+
+.table-card strong {
+  font-size: 17px;
+}
+
+.table-card span {
+  font-size: 14px;
+
+  color: #777;
+}
+
+.table-card:hover {
+  border-color: #c88825;
+
+  transform: translateY(-2px);
+}
+
+.table-card.selected {
+  background: #29251f;
+
+  border-color: #29251f;
+
+  color: white;
+}
+
+.table-card.selected span {
+  color: #eeeeee;
+}
+
+.table-selection > p {
+  margin-top: 15px;
+
+  color: #777;
+
+  text-align: center;
+}
+
+
+
+.customer-box {
+  background: white;
+
+  padding: 30px;
+
+  margin-bottom: 30px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.customer-box h2 {
+  margin-top: 0;
+
+  margin-bottom: 25px;
+
+  color: #29251f;
+}
+
+.customer-box .booking-form {
+  margin-bottom: 20px;
+}
+
+.customer-box .input-group {
+  margin-bottom: 20px;
+}
+
+
+.reservation-summary {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 16px;
+
+  margin-bottom: 30px;
+
+  border-left: 5px solid #c88825;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.reservation-summary h2 {
+  margin-top: 0;
+
+  color: #29251f;
+}
+
+.reservation-summary p {
+  margin: 10px 0;
+
+  color: #555;
+}
+
+
+
+.confirmation-area {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 25px;
+}
+
+.confirm-button {
+  padding: 16px 35px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #29251f;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+.confirm-button:hover {
+  background: #c88825;
+}
+
+.confirmation-page {
+  min-height: 80vh;
+
+  width: 90%;
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 70px 0;
+
+  text-align: center;
+}
+
+.confirmation-card {
+  background: white;
+
+  padding: 50px;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-card h1 {
+  margin: 15px 0 30px;
+
+  font-size: 32px;
+
+  color: #29251f;
+}
+
+.confirmation-card p:not(.small-title) {
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eee;
+
+  text-align: left;
+
+  color: #555;
+}
+
+.home-button {
+  margin-top: 25px;
+
+  padding: 14px 30px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #29251f;
+
+  color: white;
+
+  font-weight: 700;
+}
+
+.home-button:hover {
+  background: #c88825;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  width: 100%;
+
+  background: #25221e;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 30px 20px;
+
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+
+  color: #ddd;
+}
+
+
+@media (max-width: 900px) {
+
+  header {
+    padding: 0 25px;
+  }
+
+  nav {
+    gap: 18px;
+  }
+
+  .restaurant-list {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-image {
+    height: 300px;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .table-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+}
+
+
+
+
+@media (max-width: 600px) {
+
+  header {
+    height: auto;
+
+    padding: 18px;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  nav {
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 350px;
+
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .restaurant-section,
+  .reservation-page {
+    width: 94%;
+  }
+
+  .filter-panel {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .filter-panel select,
+  .section-heading select {
+    width: 100%;
+  }
+
+  .restaurant-card img {
+    height: 220px;
+  }
+
+  .restaurant-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-image {
+    height: 260px;
+  }
+
+  .restaurant-detail > div {
+    padding: 25px;
+  }
+
+  .restaurant-detail h2 {
+    font-size: 26px;
+  }
+
+  .table-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-box,
+  .reservation-summary,
+  .confirmation-card {
+    padding: 22px;
+  }
+
+  .confirmation-card h1 {
+    font-size: 25px;
+  }
+
+  .confirmation-area {
+    justify-content: stretch;
+  }
+
+  .confirm-button {
+    width: 100%;
+  }
+}
